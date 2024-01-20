@@ -1,41 +1,61 @@
 <template>
   <div>
-    <div class="inputContainer">
-      <input v-model="search" placeholder="Pesquise por filmes">
-      <button v-on:click="searchMovie">Procurar</button>
-    </div>
+    <input v-model="search" placeholder="Pesquise por filmes">
+    <button @click="searchMovie">Procurar</button>
+
     <div class="container">
-      <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie" />
+      <MovieCard v-for="movie in displayedMovies" :key="movie.id" :movie="movie" />
+    </div>
+
+    <div class="pagination" v-if="movies.length != 0">
+      <button @click="changePage(-1)" :disabled="currentPage === 1">&lt</button>
+      <span>Página {{ currentPage }} de {{ totalPages }}</span>
+      <button @click="changePage(1)" :disabled="currentPage === totalPages">></button>
     </div>
   </div>
 </template>
 
 <script>
-import { searchMoviesApi } from "../services/apiCalls"
-import MovieCard from "@/components/MovieCard.vue"
+import { searchMoviesApi, popularMovies } from "../services/apiCalls";
+import MovieCard from "@/components/MovieCard.vue";
 
 export default {
   components: {
-    MovieCard
+    MovieCard,
   },
   data() {
     return {
       search: "",
-      movies: []
-    }
+      movies: [],
+      currentPage: 1,
+      moviesPerPage: 10,
+    };
+  },
+  async mounted() {
+    this.movies = await popularMovies()
+  },
+  computed: {
+    totalPages() {
+      return Math.ceil(this.movies.length / this.moviesPerPage);
+    },
+    displayedMovies() {
+      const startIndex = (this.currentPage - 1) * this.moviesPerPage;
+      const endIndex = startIndex + this.moviesPerPage;
+      return this.movies.slice(startIndex, endIndex);
+    },
   },
   methods: {
     async searchMovie() {
-      this.movies = await searchMoviesApi(this.search)
-      console.log(this.movies)
-      this.search = ""
-    }
-  }
-}
+      const data = await searchMoviesApi(this.search);
+      this.movies = data.filter((item) => item.poster_path)
+      this.currentPage = 1;
+    },
+    changePage(step) {
+      this.currentPage += step;
+    },
+  },
+};
 </script>
-
-<!-- image url: https://image.tmdb.org/t/p/w500/ -->
-<!-- details: https://api.themoviedb.org/3/movie/343611?api_key=3a3b0d721bd3ebe2d05d199ce4eeba8e -->
 
 <style scoped>
 .container {
@@ -45,26 +65,21 @@ export default {
   padding: 20px;
 }
 
-.inputContainer {
+.pagination {
+  margin-top: 20px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-input {
-  padding: 10px;
-  margin: 10px 0;
-}
-
-button {
-  padding: 10px;
-  background-color: #007BFF;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
+.pagination button {
+  margin: 0 5px;
+  padding: 5px 10px;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #0056b3;
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 </style>

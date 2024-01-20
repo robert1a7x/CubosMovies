@@ -1,10 +1,10 @@
 <template>
-  <router-link :to="'/movie/' + movie.id">
     <div class="card">
-    <img :src="'https://image.tmdb.org/t/p/w500/' + movie.poster_path">
-    <div class="movie-title">{{ movie.title }}</div>
+    <router-link :to="'/movie/' + movie.id">
+      <img :src="'https://image.tmdb.org/t/p/w500/' + movie.poster_path">
+      <div class="movie-title">{{ movie.title }}</div>
+    </router-link>
   </div>
-</router-link>
 </template>
 
 <script>
@@ -35,7 +35,7 @@ export default {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(70%);
+    filter: brightness(60%);
   }
 
   .card .movie-title {
