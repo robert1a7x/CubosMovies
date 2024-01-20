@@ -1,7 +1,10 @@
 <template>
-  <div>
-    Navbar
-  </div>
+  <header>
+    <div class="navbar">
+      <h2>Cubos movies</h2>
+      <span>Night mode</span>
+    </div>
+  </header>
 </template>
 
 <script>
@@ -11,5 +14,8 @@
 </script>
 
 <style scoped>
-
+  .navbar {
+    margin-bottom: 10px;
+    border-bottom: solid black 2px;
+  }
 </style>
