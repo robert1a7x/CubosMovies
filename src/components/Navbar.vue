@@ -22,6 +22,7 @@ export default {
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 10px;
+  padding: 15px 0 15px 0;
   border-bottom: solid rgb(230, 230, 230) 1px;
 }
 
@@ -30,7 +31,7 @@ header {
 }
 
 .img-logo {
-  width: 200px;
+  width: 190px;
   margin: 10px;
 }
 

@@ -110,7 +110,7 @@ h2 {
 
 .genre-p {
   margin-right: 15px;
-  background-color: rgba(0, 0, 0, 0.349);
+  background-color: #8e4ec634;
   padding: 10px;
 }
 </style>
