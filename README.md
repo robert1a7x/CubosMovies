@@ -1,14 +1,21 @@
 # Cubos Movies
 
-This template should help get you started developing with Vue 3 in Vite.
+# Contexto
 
-## Recommended IDE Setup
+Desafio técnico da [Cubos Tecnologia](https://cubos.io/).
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Customize configuration
+Nesta aplicação um usuário é capaz de procurar por filmes, filtrar filmes populares, em cartaz, lançamentos futuros e com maiores notas. Também é possível verificar os detalhes do filme na página de detalhes.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+
+## Tecnologias usadas
+
+
+> Desenvolvido usando: Vue.js, Vue Router, Javascript, Axios, CSS3, HTML5, ES6
+
+
+## API utilizada
+> [The Movie Database](https://developer.themoviedb.org/docs/getting-started)
 
 ## Project Setup
 
