@@ -7,6 +7,9 @@ Desafio técnico da [Cubos Tecnologia](https://cubos.io/).
 
 Nesta aplicação um usuário é capaz de procurar por filmes, filtrar filmes populares, em cartaz, lançamentos futuros e com maiores notas. Também é possível verificar os detalhes do filme na página de detalhes.
 
+A aplicação está hospedada na Netlify:
+
+[https://cubos-movies-robert.netlify.app/](https://cubos-movies-robert.netlify.app/)
 
 ## Tecnologias usadas
 
