@@ -13,25 +13,18 @@ import Footer from './components/Footer.vue';
 </template>
 
 <style>
-/* .container {
-  background-image: url('./assets/backgropund-krists-luhaers-unsplash.png');
-  background-color: black;
-  height: 100vh;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
 
 body {
   background-color: black;
   color: white;
-  background-image: url('./assets/backgropund-krists-luhaers-unsplash.png');
+  background: url('./assets/backgropund-krists-luhaers-unsplash.png') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
-  height: 100vh;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
 </style>

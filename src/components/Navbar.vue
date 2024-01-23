@@ -1,25 +1,47 @@
 <template>
   <header>
-    <div class="navbar">
-      <h2>Cubos movies</h2>
-      <span>Night mode</span>
-    </div>
+    <router-link to="/">
+      <div class="navbar" >
+        <img class="img-logo" src="../assets/cubos-logo.png">
+        <span>Movies</span>
+      </div>
+    </router-link>
   </header>
 </template>
 
 <script>
-  export default {
-    
-  }
+import { RouterLink } from 'vue-router';
+export default {
+
+}
 </script>
 
 <style scoped>
-  .navbar {
-    margin-bottom: 10px;
-    border-bottom: solid rgb(230, 230, 230) 2px;
-  }
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: solid rgb(230, 230, 230) 1px;
+}
 
-  header {
-    background-color: rgba(0, 0, 0, 0.726);
-  }
+header {
+  background-color: rgba(0, 0, 0, 0.726);
+}
+
+.img-logo {
+  width: 200px;
+  margin: 10px;
+}
+
+span {
+  font-weight: bold;
+  font-size: 30px;
+  margin-left: 5px;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
 </style>

@@ -23,14 +23,23 @@ export const searchMoviesApi = (query) => {
 };
 
 export const movieDetailApi = (id) => {
-  return axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=3a3b0d721bd3ebe2d05d199ce4eeba8e`)
-  .then(function (response) {
-    // console.log(response);
-    return response.data;
-  })
-  .catch(function (error) {
-    console.error(error);
-  });
+  const options = {
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/movie/${id}?language=pt-BR`,
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYTNiMGQ3MjFiZDNlYmUyZDA1ZDE5OWNlNGVlYmE4ZSIsInN1YiI6IjY1YWJiOGYwYmU2ZDg4MDBiYzkyODUyOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qDpjWQhIQVktrIiJu9Pz7-6JnAOQjqMmoiI3xWJRmbc'
+    }
+  };
+  
+  return axios
+    .request(options)
+    .then(function (response) {
+      return response.data
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
 };
 
 export const popularMovies = () => {

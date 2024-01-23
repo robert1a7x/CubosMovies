@@ -1,14 +1,17 @@
 <template>
   <div class="footer">
-    Footer
+    <p>2023 © Todos os direitos reservados a <span>Cubos Movies</span></p>
   </div>
 </template>
 
 <style scoped>
 
   .footer {
-   background-color: rgba(0, 0, 0, 0.726);
-   margin-top: 15px;
-    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.726);
+    margin-top: 15px;
+    height: 50px;
   }
 </style>

@@ -1,27 +1,27 @@
 <template>
   <div>
     <div class="search-container">
-      <input v-model="search" placeholder="Pesquise por filmes">
-      <button @click="searchMovie">Procurar</button>
-      <button @click="showFilter = !showFilter">Filtro</button>
+      <input v-model="search" @keyup.enter="searchMovie" placeholder="Pesquise por filmes" class="search-input">
+      <!-- <button class="search-button" @click="searchMovie" >Procurar</button> -->
+      <img class="filter-icon" src="../assets/filter.png" @click="showFilter = !showFilter"/>
     </div>
     <div v-show="showFilter" class="filter">
-      <div @click="filterPopular">
+      <div class="input-filter" @click="filterPopular">
         <input type="radio" id="popular" name="filter" value="popular" checked />
         <label for="popular">Popular</label>
       </div>
 
-      <div @click="filterNowPlaying">
+      <div class="input-filter" @click="filterNowPlaying">
         <input type="radio" id="nowPlaying" name="filter" value="nowPlaying" />
         <label for="nowPlaying">Em cartaz</label>
       </div>
 
-      <div @click="filterTopRated">
+      <div class="input-filter" @click="filterTopRated">
         <input type="radio" id="topRated" name="filter" value="topRated" />
         <label for="topRated">Melhor nota</label>
       </div>
 
-      <div @click="filterUpcoming">
+      <div class="input-filter" @click="filterUpcoming">
         <input type="radio" id="upComing" name="filter" value="upComing" />
         <label for="upComing">Em breve</label>
       </div>
@@ -32,9 +32,9 @@
     </div>
 
     <div class="pagination" v-if="movies.length != 0">
-      <button @click="changePage(-1)" :disabled="currentPage === 1">&lt</button>
+      <button class="pagination-button" @click="changePage(-1)" :disabled="currentPage === 1">&lt</button>
       <span>Página {{ currentPage }} de {{ totalPages }}</span>
-      <button @click="changePage(1)" :disabled="currentPage === totalPages">></button>
+      <button class="pagination-button" @click="changePage(1)" :disabled="currentPage === totalPages">></button>
     </div>
   </div>
 </template>
@@ -88,7 +88,6 @@ export default {
     async filterNowPlaying() {
       this.movies = await nowPlaying()
     },
-
     changePage(step) {
       this.currentPage += step;
     },
@@ -102,7 +101,7 @@ export default {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 20px;
-  height: 90vh;
+  min-height: 90vh;
 }
 
 .pagination {
@@ -126,11 +125,52 @@ export default {
 .search-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .filter {
   display: flex;
   justify-content: center;
   padding: 20px;
+}
+
+.search-input {
+  background: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 2px;
+  padding: 14px;
+  outline: none;
+  width: 350px;
+  color: white;
+  margin: 0 0 0 10px;
+}
+
+.filter-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #8e4ec65b;
+  padding: 8px;
+  cursor: pointer;
+  margin: 0 10px 0 10px;
+}
+
+.pagination-button {
+  width: 45px;
+  height: 40px;
+  background-color: #8e4ec6cc;
+  padding: 8px;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  border: none;
+}
+
+.input-filter {
+  margin-right: 20px;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
 }
 </style>
