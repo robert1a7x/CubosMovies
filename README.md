@@ -17,20 +17,16 @@ Nesta aplicação um usuário é capaz de procurar por filmes, filtrar filmes po
 ## API utilizada
 > [The Movie Database](https://developer.themoviedb.org/docs/getting-started)
 
-## Project Setup
+## Instalando Dependências
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+## Executando aplicação
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
 
-```sh
-npm run build
-```
